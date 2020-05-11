@@ -6,6 +6,14 @@
       <router-link to="/signup">sign up</router-link>| -->
       <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand >Online shopping</b-navbar-brand>
+    <router-link to="/main">
+    <b-button size="sm" class="mb-2" variant="outline-info">
+    <b-iconstack font-scale="5" rotate="90" animation="cylon-vertical" >
+      <b-icon stacked icon="credit-card" shift-h="-4" variant="danger"></b-icon>
+      <b-icon stacked icon="credit-card" shift-h="0" variant="success"></b-icon>
+    </b-iconstack>
+    </b-button>
+    </router-link>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
