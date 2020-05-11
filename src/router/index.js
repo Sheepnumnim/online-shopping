@@ -10,6 +10,7 @@ import SignIn from '../views/signin.vue'
 
 import main from '../views/main.vue'
 
+import detail from '../views/detail.vue'
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,14 @@ let router = new VueRouter({
       name: main,
 
       component: main
+    },
+    {
+
+      path: '/detail',
+
+      name: detail,
+
+      component: detail
     },
     // },
 
