@@ -1,27 +1,115 @@
 import Vue from 'vue'
+
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+import MovieList from '../views/movielist.vue'
+
+import SignUp from '../views/signup.vue'
+
+import SignIn from '../views/signin.vue'
+
+import main from '../views/main.vue'
+
 
 Vue.use(VueRouter)
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
 
-const router = new VueRouter({
-  routes
+let router = new VueRouter({
+
+  routes: [
+
+    {
+
+      path: '/',
+
+      redirect: '/main'
+
+    },
+
+    {
+
+      path: '*',
+
+      redirect: '/main'
+
+    },
+
+    {
+
+      path: '/signin',
+
+      name: SignIn,
+
+      component: SignIn
+
+    },
+
+    {
+
+      path: '/signup',
+
+      name: SignUp,
+
+      component: SignUp
+
+    }, {
+
+      path: '/main',
+
+      name: main,
+
+      component: main
+    },
+    // },
+
+    // {
+
+    //   path: '/movie',
+
+    //   name: MovieList,
+
+    //   component: MovieList,
+
+    //   meta: {
+
+    //     requireAuth: true
+
+    //   }
+
+    
+
+  ]
+
 })
+
+
+router.beforeEach((to, from, next) => {
+
+  let currentUser = firebase.auth().currentUser
+
+  let requireAuth = to.matched.some(record => record.meta.requireAuth)
+
+  if (requireAuth && !currentUser) {
+
+    next('signin')
+
+  // } else if (!requireAuth && currentUser) {
+
+  //   next('movie')
+
+  } else {
+
+    next()
+
+  }
+
+})
+
+// const router = new VueRouter({
+
+// routes
+
+// })
+
 
 export default router
