@@ -2,9 +2,9 @@
     <div>
         <div>
             <b-carousel id="carousel-1" v-model="slide" :interval="3000" controls indicators 
-                @sliding-start="onSlideStart" @sliding-end="onSlideEnd"   >
+                @sliding-start="onSlideStart" @sliding-end="onSlideEnd"  >
                 <!-- Text slides with image -->
-                <b-carousel-slide  v-for="image in images" v-bind:key="image" v-bind:img-src="image">
+                <b-carousel-slide  class="size" v-for="image in images" v-bind:key="image" v-bind:img-src="image">
                  </b-carousel-slide>
                  </b-carousel>
         </div>
@@ -18,7 +18,7 @@
                         <div class="card-text">{{ item.price }} : Bath</div>
                         <div class="row justify-content-end">
                             <button class="btn btn-primary" style="font-size: 2rem;" v-b-tooltip.hover
-                                title="Add to cart">buy</button>
+                                title="buy">buy</button>
                         </div>
                     </div>
 
@@ -97,6 +97,14 @@
 <style scoped>
     .card {
         margin-top: 5rem;
+
+    }.size{
+   
+	height: 500px;
+	object-fit: cover;
+	width: 100%;
+
+
 
     }
 </style>
