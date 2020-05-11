@@ -22,10 +22,10 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto" right >
         <router-link to="/signin">
-      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Login">
+      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Login" size="lg">
       <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon> Login</b-button></router-link>
 
-      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="register">
+      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="register" size="lg">
       <b-icon icon="person-plus" aria-hidden="true"></b-icon> Register</b-button>
 
       </b-navbar-nav>
