@@ -6,6 +6,14 @@
       <router-link to="/signup">sign up</router-link>| -->
       <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand >Online shopping</b-navbar-brand>
+    <router-link to="/main">
+    <b-button size="sm" class="mb-2" variant="outline-info">
+    <b-iconstack font-scale="5" rotate="90" animation="cylon-vertical" >
+      <b-icon stacked icon="credit-card" shift-h="-4" variant="danger"></b-icon>
+      <b-icon stacked icon="credit-card" shift-h="0" variant="success"></b-icon>
+    </b-iconstack>
+    </b-button>
+    </router-link>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -14,11 +22,19 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto" right >
         <router-link to="/signin">
+<<<<<<< HEAD
       <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Login">
       <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon> Sign in</b-button></router-link>
 
       <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="register">
       <b-icon icon="person-plus" aria-hidden="true"></b-icon> Sign up</b-button>
+=======
+      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Login" size="lg" > 
+      <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon> Login</b-button></router-link>
+
+      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="register" size="lg">
+      <b-icon icon="person-plus" aria-hidden="true"></b-icon> Register</b-button>
+>>>>>>> 4f104cd6d0e8304ee9162c6740505ac037c684ae
 
       </b-navbar-nav>
     </b-collapse>
