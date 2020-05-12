@@ -12,6 +12,9 @@ import main from '../views/main.vue'
 
 import detail from '../views/detail.vue'
 
+import owner from '../views/owner.vue'
+
+import edit from '../views/edit.vue'
 Vue.use(VueRouter)
 
 
@@ -68,6 +71,21 @@ let router = new VueRouter({
       name: detail,
 
       component: detail
+    }, {
+
+      path: '/owner',
+
+      name: owner,
+
+      component: owner
+    }, {
+
+      path: '/edit',
+
+      name: edit,
+
+      component: edit
+
     },
     // },
 

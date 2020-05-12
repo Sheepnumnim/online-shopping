@@ -36,7 +36,14 @@
                         </b-input-group-prepend>
                         <b-form-input type="search" placeholder="Search" style="font-size:15px"></b-form-input>
                     </b-input-group>
+                    
+                    
                     <br>
+                    <br>
+                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover
+                                    title="search">Search</b-button>
+
+                    
 
 
 
@@ -88,7 +95,7 @@
                         image: 'https://www.jornadacontinental.org/wp-content/uploads/2020/01/2.jpg',
                         price: 100,
                         description: "เอาไว้ใส่วิ่งนะ",
-                        quantity: ''
+                        quantity: 1
                     },
                     {
                         invId: 2,
@@ -96,7 +103,7 @@
                         image: 'https://images-na.ssl-images-amazon.com/images/I/61KdLTqjadL._AC_UX679_.jpg',
                         price: 200,
                         description: "เอาไว้ใส่วิ่งนะ",
-                        quantity: ''
+                        quantity: 2
                     },
                     {
                         invId: 3,
@@ -104,7 +111,7 @@
                         image: 'https://www.jordansaleuk.com/wp-content/uploads/2019/02/air-jordan-1-mid-bred-multi-color-shoes-uk-for-cheap-554724-125.jpeg',
                         price: 300,
                         description: "เอาไว้ใส่วิ่งนะ",
-                        quantity: ''
+                        quantity: 3
                     },
                     {
                         invId: 4,
@@ -120,7 +127,7 @@
                         image: 'https://ge.lnwfile.com/agk7gg.jpg',
                         price: 299,
                         description: "เอาไว้ใส่วิ่งนะ",
-                        quantity: ''
+                        quantity: 4
                     },
                 ],
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg']
