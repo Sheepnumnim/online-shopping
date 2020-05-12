@@ -2,8 +2,6 @@ import Vue from 'vue'
 
 import VueRouter from 'vue-router'
 
-import MovieList from '../views/movielist.vue'
-
 import SignUp from '../views/signup.vue'
 
 import SignIn from '../views/signin.vue'

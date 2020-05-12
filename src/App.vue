@@ -15,10 +15,10 @@
       <b-navbar-nav class="ml-auto" right >
         <router-link to="/signin">
       <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Login">
-      <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon> Login</b-button></router-link>
+      <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon> Sign in</b-button></router-link>
 
       <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="register">
-      <b-icon icon="person-plus" aria-hidden="true"></b-icon> Register</b-button>
+      <b-icon icon="person-plus" aria-hidden="true"></b-icon> Sign up</b-button>
 
       </b-navbar-nav>
     </b-collapse>
