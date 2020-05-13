@@ -9,9 +9,10 @@
             <input type="password" class="form-control" placeholder="password" v-model="formData.password">
             <br><br><br>
             <button class="btn btn-success btn-block full-width" @click="signIn">Sign in</button>
-            <br>
+            <br><br>
+            <p>if you don't have any account click sign up</p>
             <router-link to="/signup">
-            <button class="btn btn-success btn-block full-width"  >Sig up</button>
+            <button class="btn btn-success btn-block full-width"  >Sign up</button>
             </router-link>
       </div>
     </div>
@@ -81,6 +82,9 @@ a {
   margin: auto;
   border-left-color: #2c3e50;
   border-left-width: 5px;
+}
+p{
+  font-size: 15px;
 }
 
 

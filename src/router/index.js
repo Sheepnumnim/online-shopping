@@ -13,6 +13,8 @@ import detail from '../views/detail.vue'
 import owner from '../views/owner.vue'
 
 import edit from '../views/edit.vue'
+
+import add from '../views/Add'
 Vue.use(VueRouter)
 
 
@@ -83,6 +85,14 @@ let router = new VueRouter({
       name: edit,
 
       component: edit
+
+    },  {
+
+      path: '/add',
+
+      name: add,
+
+      component: add
 
     },
     // },

@@ -1,6 +1,5 @@
 <template>
     <div class="row">
-        <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-md-offset-3"> -->
         <div class="center">
         <br><br><br>
         <h2>Sign up</h2>
@@ -14,7 +13,6 @@
         <input type="password" class="form-control" placeholder="confirm password" v-model="formData.confirmPassword">
         <br><br><br>
         <button class="btn btn-success btn-block full-width" @click="signUp">Sign Up</button>         
-        <!-- </div>           -->
         </div>
     </div>
 </template>
@@ -91,4 +89,5 @@ h2 {
 .center{
   margin:auto;
 }
+
 </style>
