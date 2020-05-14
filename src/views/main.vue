@@ -78,10 +78,7 @@
             return {
                 slide: 0,
                 sliding: null,
-<<<<<<< HEAD
-                
-=======
->>>>>>> 5e60eee856841c54a7572115db35f091c720147c
+
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
                 products: {}
             };

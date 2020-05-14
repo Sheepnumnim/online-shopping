@@ -1,7 +1,11 @@
 <template>
     <div>
         <apexchart width="600" type="bar" :options="chartOptions" :series="series"></apexchart>
+        
         <b-button @click="sort">sort</b-button>
+        <b-button @click="mosttop3">most top 3</b-button>
+        <b-button @click="leasttop3">least top 3</b-button>
+
 
     </div>
 </template>
@@ -32,6 +36,15 @@
                 points.sort(function(a, b){return a - b});
                 console.log(points)
                 console.log(x)
+            },top3(){
+
+
+
+            },leasttop3(){
+
+
+
+
             }
 
         },
