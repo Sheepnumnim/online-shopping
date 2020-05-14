@@ -53,7 +53,7 @@
                         <div class="row justify-content-end">
                             <router-link to="/detail">
                                 <button class="btn btn-primary" style="font-size: 2rem;" v-b-tooltip.hover
-                                    title="detail">detail</button>
+                                    title="detail" @click="gotoDetails(item._id)">detail</button>
                             </router-link>
                         </div>
                     </div>
@@ -78,7 +78,10 @@
             return {
                 slide: 0,
                 sliding: null,
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 5e60eee856841c54a7572115db35f091c720147c
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
                 products: {}
             };
@@ -89,19 +92,18 @@
             },
             onSlideEnd(slide) {
                 this.sliding = false
+            },
+            gotoDetails(productId) {
+                this.$router.push('/detail/' + productId)
             }
-
         },
         created() {
             var url = 'https://flowing-vision-262803.el.r.appspot.com/products/getMany'
             axios.get(url)
                 .then((response) => {
-                    console.log('debug')
-                    console.log(response.data)
                     this.products = response.data
                 })
                 .catch((error) => {
-                    console.log('error')
                     console.log(error.message)
                 })
         },
