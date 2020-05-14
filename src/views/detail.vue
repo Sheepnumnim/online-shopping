@@ -1,52 +1,70 @@
 <template>
-  <div>
-<b-container class="bv-example-row">
-<div>
-  <b-card no-body class="overflow-hidden" style="max-width: 1000px;">
-    <b-row no-gutters>
-      <b-col md="6">
-        <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
-      </b-col>
-      <b-col md="6">
-        <b-card-body title="Name" style="font-size:20px">
-          <b-card-text>
-            Detail
-          </b-card-text>
-           <b-card-text>
-            price
-          </b-card-text>
-        </b-card-body>
-        
-      </b-col>
-      
-    </b-row>
-  </b-card>
-  <br>
-  <br>
-     <label for="sb-large" style="font-size:20px">quantity : </label>
-     <b-form-spinbutton id="sb-large" v-model="value" inline style="font-size:20px;margin-left:50px"></b-form-spinbutton>
-  
-  <b-button size="lg" variant="outline-primary" style="font-size:20px;margin-left:50px" v-b-tooltip.hover title="Buy">Buy</b-button>
-</div>
+    <div>
+        <b-container class="bv-example-row">
+            <div>
+                <b-card no-body class="overflow-hidden" style="max-width: 1000px;">
+                    <b-row no-gutters>
+                        <b-col md="6">
+                            <b-card-img :src="product.image" alt="Image" class="rounded-0">
+                            </b-card-img>
+                        </b-col>
+                        <b-col md="6">
+                            <b-card-body :title="product.name" style="font-size:20px">
+                                <b-card-text>
+                                    {{product.description}}
+                                </b-card-text>
+                                <b-card-text>
+                                    {{product.price}}
+                                </b-card-text>
+                            </b-card-body>
+                        </b-col>
+                    </b-row>
+                </b-card>
+                <br>
+                <br>
+                <label for="sb-large" style="font-size:20px">quantity : </label>
+                <b-form-spinbutton id="sb-large" v-if="product.quantity>0" value="1" inline min="1" :max="product.quantity" style="font-size:20px;margin-left:50px">
+                </b-form-spinbutton>
+                <b-form-spinbutton id="sb-large" v-else value="0" inline min="0" max="0" style="font-size:20px;margin-left:50px">
+                </b-form-spinbutton>
+                
+                <b-button size="lg" variant="outline-primary" style="font-size:20px;margin-left:50px" v-b-tooltip.hover
+                    title="Buy">Buy</b-button>
+            </div>
 
-</b-container>
-  </div>
+        </b-container>
+    </div>
 </template>
 
 <script>
-  // @ is an alias to /src
-  import HelloWorld from '@/components/HelloWorld.vue'
+    // @ is an alias to /src
+    import HelloWorld from '@/components/HelloWorld.vue'
+    import axios from 'axios'
 
-  export default {
-    name: 'detail',
-    components: {
-      HelloWorld
-    },
-    data() {
-      return {
-      }
-    },
-  }
+    export default {
+        name: 'detail',
+        components: {
+            HelloWorld
+        },
+        data() {
+            return {
+                product: {}
+            }
+        },
+        created() {
+            var url = 'https://flowing-vision-262803.el.r.appspot.com/products/getOne/' + this.$route.params.productId
+            axios.get(url)
+                .then((response) => {
+                    console.log('debug')
+                    console.log(response.data)
+                    this.product = response.data
+                })
+                .catch((error) => {
+                    console.log('error')
+                    console.log(error.message)
+                })
+        },
+    }
 </script>
 <style>
 </style>
