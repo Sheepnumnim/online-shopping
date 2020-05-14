@@ -15,6 +15,8 @@ import owner from '../views/owner.vue'
 import edit from '../views/edit.vue'
 
 import add from '../views/Add'
+
+import graph from '../views/graph.vue'
 Vue.use(VueRouter)
 
 
@@ -93,6 +95,14 @@ let router = new VueRouter({
       name: add,
 
       component: add
+
+    },{
+
+      path: '/graph',
+
+      name: graph,
+
+      component: graph
 
     },
     // },
