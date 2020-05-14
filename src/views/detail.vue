@@ -55,12 +55,9 @@
             var url = 'https://flowing-vision-262803.el.r.appspot.com/products/getOne/' + this.$route.params.productId
             axios.get(url)
                 .then((response) => {
-                    console.log('debug')
-                    console.log(response.data)
                     this.product = response.data
                 })
                 .catch((error) => {
-                    console.log('error')
                     console.log(error.message)
                 })
         },
