@@ -26,6 +26,10 @@
   <router-link to="/add">
          <b-button variant="outline-success" style="font-size:15px" v-b-tooltip.hover title="add goods">add goods</b-button>
         </router-link>
+          <router-link to="/graph">
+          <b-button variant="outline-warning" style="font-size:15px;margin-left:30px" v-b-tooltip.hover title="graph analysis">graph analysis
+          </b-button>
+      </router-link>
     
 </div>
 
