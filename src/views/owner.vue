@@ -13,16 +13,22 @@
         </b-card-body>
       </b-col>
       </b-row>
+      
       <br>
       <br>
+      
 
   
 
   </b-card>
   <br>
   <br>
+  <router-link to="/add">
+         <b-button variant="outline-success" style="font-size:15px" v-b-tooltip.hover title="add goods">add goods</b-button>
+        </router-link>
     
 </div>
+
 
 </b-container>
 <!-- ตารางข้างล่าง ที่แสดงข้อมูล-->
@@ -31,11 +37,11 @@
      <b-table :items="items" :fields="fields" striped responsive="sm">
       <template v-slot:cell(edit)="row">
         <router-link to="/edit">
-        <b-button variant="outline-primary">Edit</b-button>
+        <b-button variant="outline-primary" v-b-tooltip.hover title="edit">Edit</b-button>
         </router-link>
       </template>
       <template v-slot:cell(delete)="row">
-        <b-button variant="outline-danger">X</b-button>
+        <b-button variant="outline-danger" v-b-tooltip.hover title="delete">X</b-button>
       </template>
     </b-table>
   </div>

@@ -1,119 +1,140 @@
 <template>
-  <div> 
-<b-container class="bv-example-row">
-<div>
-  <b-card no-body class="overflow-hidden" style="max-width: 1000px;">
-    <b-row no-gutters>
-      <b-col md="6">
-        <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
-      </b-col>
-      <b-col md="6">
-        <b-card-body title="EDIT" style="font-size:17px">
-          <b-row class="my-1">
-    <b-col sm="2">
-        Name:
-    </b-col>
-    <b-col sm="10">
-      <b-form-input id="input-large" size="lg" placeholder="edit name"></b-form-input>
-    </b-col>
-  </b-row>
-  <br>
-             <b-row class="my-1">
-    <b-col sm="2">
-        Descript:
-    </b-col>
-    <b-col sm="10">
-      <b-form-input id="input-large" size="lg" placeholder="edit descript"></b-form-input>
-    </b-col>
-  </b-row>
-   <br>
-             <b-row class="my-1">
-    <b-col sm="2">
-        Image:
-    </b-col>
-    <b-col sm="10">
-      <b-form-input id="input-large" size="lg" placeholder="edit image"></b-form-input>
-    </b-col>
-  </b-row>
+  <div>
+    <b-container class="bv-example-row">
+      <div>
+        <b-card no-body class="overflow-hidden" style="max-width: 1000px;">
+          <b-row no-gutters>
+            <b-col md="6">
+              <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+            </b-col>
+            <b-col md="6">
+              <b-card-body  style="font-size:7px">
+                  <h2>Edit</h2>
+                <b-row class="my-1">
+                   <br><br>
+                   <div class="center">
+            <input type="text" class="form-control" placeholder="name" >
+            <br>
+            <input type="text" class="form-control" placeholder="price" >
+            <br>
+            <input type="text" class="form-control" placeholder="image url" >
+            <br>
+            
+            <textarea class="areatext" rows="10" placeholder="Detail" ></textarea>
+                   </div>
 
-   <br>
-             <b-row class="my-1">
-    <b-col sm="2">
-        Price:
-    </b-col>
-    <b-col sm="10">
-      <b-form-input id="input-large" size="lg" placeholder="edit price"></b-form-input>
-    </b-col>
-  </b-row>
-        </b-card-body>
-        
-      </b-col>
-      
-    </b-row>
-  </b-card>
-  <br>
-  <br>  
- 
-</div>
+                </b-row>
+              </b-card-body>
 
-</b-container>
- <div>
-    <b-button size="lg" variant="outline-success"  style="font-size:20px" v-b-tooltip.hover title="Save">Save</b-button>
+            </b-col>
 
-    <router-link to="/owner">
-  <b-button size="lg" variant="outline-danger" style="font-size:20px;margin-left:50px" v-b-tooltip.hover title="cancle">cancle</b-button>
-  </router-link>
-  <br>
-  <br>
-  
-  </div>
-      <b-alert
-      :show="dismissCountDown"
-      dismissible
-      variant="success"
-      @dismissed="dismissCountDown=0"
+          </b-row>
+        </b-card>
+        <br>
+        <br>
+
+      </div>
+
+    </b-container>
+    <div>
+         
+            <button class="btn btn-success btn-block full-width" v-b-tooltip.hover title="add" @click="edit" >edit</button>
+            <br><br>
+            <button class="btn btn-danger btn-block full-width" v-b-tooltip.hover title="cancle" @click="cancle">Cancle</button>
+            <br><br>
+            <b-alert :show="dismissCountDown" dismissible variant="success" @dismissed="dismissCountDown=0"
       @dismiss-count-down="countDownChanged">
-      <p style="font-size:20px">Edit data Success {{ dismissCountDown }} seconds...</p>
-      <b-progress
-        variant="success"
-        :max="dismissSecs"
-        :value="dismissCountDown"
-        height="4px"
-      ></b-progress>
+      <p style="font-size:20px">Edit goods success {{ dismissCountDown }} seconds...</p>
+      <b-progress variant="success" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
     </b-alert>
+    
 
-    <b-button @click="showAlert" variant="info" class="m-1">
-      Show alert with count-down timer
-    </b-button>
-  
+    </div>
+   
+
+
   </div>
-  
+
 </template>
 
 <script>
-  // @ is an alias to /src
-  import HelloWorld from '@/components/HelloWorld.vue'
-
-  export default {
+export default {
     name: 'edit',
-    components: {
-      HelloWorld
-    },
-    data() {
-      return {
-           dismissSecs: 6,
+  data () {
+    return {
+      item: {
+        name: '',
+        price: '',
+        imageURL:'',
+        detail:''
+      },  dismissSecs: 5,
         dismissCountDown: 0,
-      }
-    }, methods: {
-      countDownChanged(dismissCountDown) {
+    }
+  },
+  methods: {
+    edit () {
+      console.log('edit')
+      this.dismissCountDown = this.dismissSecs
+      
+    },cancle() {
+      console.log('cancle')
+
+    },
+    countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown
       },
-      showAlert() {
-        this.dismissCountDown = this.dismissSecs 
-        // เอาcodeนี้ไปวางไว้ในfunctionตอนกดsaveแล้วมันทำงานเสร็จจะเอาไว้alertเฉยๆว่าsaveสำเร็จนะ
-      }
-    }
-  }
+  } 
+}
 </script>
-<style>
+
+<style scoped>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.btn-success{
+  background-color: #2c3e50;
+  border: #2c3e50;
+  height: 40px;
+  font-size: 13px;
+  width: 350px;
+  margin: auto;
+}
+h2 {
+  font-weight: normal;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
+}
+.form-control{
+  height: 35px;
+  width: 350px;
+  font-size: 15px;
+  margin: auto;
+  border-left-color: #2c3e50;
+  border-left-width: 5px;
+}
+.center{
+  margin:auto;
+}
+.areatext{
+    width: 350px;
+    font-size: 15px;
+    border-left-color: #2c3e50;
+    border-left-width: 5px;
+}.btn-danger{
+  background-color: #d83e27;
+  border: #2c3e50;
+  height: 40px;
+  font-size: 13px;
+  width: 350px;
+  margin: auto;
+}
+
 </style>
