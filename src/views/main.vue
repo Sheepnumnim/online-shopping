@@ -12,8 +12,8 @@
 
         <br>
         <br>
-        <!-- อันนี้คือแถบcategoryกับพวกsearch -->
 
+        <!-- อันนี้คือแถบcategoryกับพวกsearch -->
         <b-container class="bv-example-row">
             <b-row>
                 <b-col>
@@ -36,24 +36,15 @@
                         </b-input-group-prepend>
                         <b-form-input type="search" placeholder="Search" style="font-size:15px"></b-form-input>
                     </b-input-group>
-                    
-                    
                     <br>
                     <br>
-                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover
-                                    title="search">Search</b-button>
-
-                    
-
-
-
-
+                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover title="search">Search</b-button>
                 </b-col>
             </b-row>
         </b-container>
         <!-- อันนี้คือแสดงข้อมูล -->
         <b-container class="bv-example-row">
-            <div class="col-md-3" v-for="item in forSale" v-bind:key="item">
+            <div class="col-md-3" v-for="item in products" v-bind:key="item">
                 <div class="card">
                     <img :src="item.image" :alt="item.name" class="card-img-top" height="210rem">
                     <div class="card-body" style="font-size: 2rem;">
@@ -66,12 +57,9 @@
                             </router-link>
                         </div>
                     </div>
-
                 </div>
             </div>
         </b-container>
-
-
     </div>
 </template>
 
@@ -82,6 +70,7 @@
         Slide,
         Navigation as HooperNavigation
     } from 'hooper';
+    import axios from 'axios'
 
     export default {
         name: 'main',
@@ -130,12 +119,11 @@
                         quantity: 4
                     },
                 ],
-                images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg']
-
+                images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
+                products: {}
             };
         },
         methods: {
-
             onSlideStart(slide) {
                 this.sliding = true
             },
@@ -143,6 +131,19 @@
                 this.sliding = false
             }
 
+        },
+        created() {
+            var url = 'https://flowing-vision-262803.el.r.appspot.com/products/getMany'
+            axios.get(url)
+                .then((response) => {
+                    console.log('debug')
+                    console.log(response.data)
+                    this.products = response.data
+                })
+                .catch((error) => {
+                    console.log('error')
+                    console.log(error.message)
+                })
         },
         components: {
             Hooper,
