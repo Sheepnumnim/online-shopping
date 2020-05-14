@@ -78,6 +78,7 @@
             return {
                 slide: 0,
                 sliding: null,
+
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
                 products: {}
             };

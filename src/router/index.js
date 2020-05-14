@@ -8,61 +8,117 @@ import owner from '../views/owner.vue'
 import edit from '../views/edit.vue'
 import add from '../views/Add'
 
+import graph from '../views/graph.vue'
+Vue.use(VueRouter)
+
+
 Vue.use(VueRouter)
 
 let router = new VueRouter({
-    routes: [{
-            path: '/',
-            redirect: '/main'
-        },
-        {
-            path: '*',
-            redirect: '/main'
-        },
-        {
-            path: '/signin',
-            name: SignIn,
-            component: SignIn
-        },
-        {
-            path: '/signup',
-            name: SignUp,
-            component: SignUp
-        }, 
-        {
-            path: '/main',
-            name: main,
-            component: main
-        },
-        {
-            path: '/detail/:productId',
-            name: detail,
-            component: detail
-        }, 
-        {
-            path: '/owner',
-            name: owner,
-            component: owner
-        }, 
-        {
-            path: '/edit/:productId',
-            name: edit,
-            component: edit
-        }, 
-        {
-            path: '/add',
-            name: add,
-            component: add
-        },
-        // },
-        // {
-        //   path: '/movie',
-        //   name: MovieList,
-        //   component: MovieList,
-        //   meta: {
-        //     requireAuth: true
-        //   }
-    ]
+
+  routes: [
+
+    {
+
+      path: '/',
+
+      redirect: '/main'
+
+    },
+
+    {
+
+      path: '*',
+
+      redirect: '/main'
+
+    },
+
+    {
+
+      path: '/signin',
+
+      name: SignIn,
+
+      component: SignIn
+
+    },
+
+    {
+
+      path: '/signup',
+
+      name: SignUp,
+
+      component: SignUp
+
+    }, {
+
+      path: '/main',
+
+      name: main,
+
+      component: main
+    },
+    {
+
+      path: '/detail',
+
+      name: detail,
+
+      component: detail
+    }, {
+
+      path: '/owner',
+
+      name: owner,
+
+      component: owner
+    }, {
+
+      path: '/edit',
+
+      name: edit,
+
+      component: edit
+
+    },  {
+
+      path: '/add',
+
+      name: add,
+
+      component: add
+
+    },{
+
+      path: '/graph',
+
+      name: graph,
+
+      component: graph
+
+    },
+    // },
+
+    // {
+
+    //   path: '/movie',
+
+    //   name: MovieList,
+
+    //   component: MovieList,
+
+    //   meta: {
+
+    //     requireAuth: true
+
+    //   }
+
+    
+
+  ]
+
 })
 
 router.beforeEach((to, from, next) => {
