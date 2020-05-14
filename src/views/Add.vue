@@ -49,6 +49,10 @@
             }
         },
         methods: {
+            create() {
+                console.log('create')
+                this.dismissCountDown = this.dismissSecs
+            },
             cancle() {
                 this.$router.go(-1)
             },
@@ -70,7 +74,6 @@
                     .catch((error) => {
                         console.log(error.message)
                     })
-                this.dismissCountDown = this.dismissSecs
             }
         }
     }
