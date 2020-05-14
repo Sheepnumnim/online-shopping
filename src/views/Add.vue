@@ -21,7 +21,7 @@
       <br><br>
       <b-alert :show="dismissCountDown" dismissible variant="danger" @dismissed="dismissCountDown=0"
         @dismiss-count-down="countDownChanged">
-        <p style="font-size:20px">have null fields{{ dismissCountDown }} seconds...</p>
+        <p style="font-size:20px">have null fields {{ dismissCountDown }} seconds...</p>
         <b-progress variant="danger" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
       </b-alert>
 
@@ -83,6 +83,7 @@
           axios.post(url, newProduct)
             .then((response) => {
               console.log('added success')
+              this.$router.go(-1)
 
 
             })

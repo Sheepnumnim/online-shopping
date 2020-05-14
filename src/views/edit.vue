@@ -47,6 +47,7 @@
       <p style="font-size:20px">Edit goods success {{ dismissCountDown }} seconds...</p>
       <b-progress variant="success" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
     </b-alert>
+     
     
 
     </div>
