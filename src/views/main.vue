@@ -5,7 +5,7 @@
             <b-carousel id="carousel-1" v-model="slide" :interval="3000" controls indicators
                 @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
                 <!-- Text slides with image -->
-                <b-carousel-slide class="size" v-for="image in images" v-bind:key="image" v-bind:img-src="image" >
+                <b-carousel-slide class="size" v-for="image in images" v-bind:key="image" v-bind:img-src="image">
                 </b-carousel-slide>
             </b-carousel>
         </div>
@@ -19,11 +19,13 @@
                 <b-col>
                     <div>
                         <label for="sb-step" style="font-size:20px">Min :price bath</label>
-                        <b-form-spinbutton id="sb-step" v-model="value" min="0" max="1000000" step="100" style="font-size:15px">
+                        <b-form-spinbutton id="sb-step" v-model="value" min="0" max="1000000" step="100"
+                            style="font-size:15px">
                         </b-form-spinbutton>
                         <br>
                         <label for="sb-step" style="font-size:20px">Max :price bath</label>
-                        <b-form-spinbutton id="sb-step" v-model="value" min="0" max="1000000" step="100" style="font-size:15px">
+                        <b-form-spinbutton id="sb-step" v-model="value" min="0" max="1000000" step="100"
+                            style="font-size:15px">
                         </b-form-spinbutton>
                     </div>
                 </b-col>
@@ -38,7 +40,8 @@
                     </b-input-group>
                     <br>
                     <br>
-                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover title="search">Search</b-button>
+                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover title="search">Search
+                    </b-button>
                 </b-col>
             </b-row>
         </b-container>
@@ -51,10 +54,8 @@
                         <h4 class="card-title" style="font-size: 2rem;">{{ item.name }}</h4>
                         <div class="card-text">{{ item.price }} : Bath</div>
                         <div class="row justify-content-end">
-                            <router-link to="/detail">
-                                <button class="btn btn-primary" style="font-size: 2rem;" v-b-tooltip.hover
-                                    title="detail" @click="gotoDetails(item._id)">detail</button>
-                            </router-link>
+                            <button class="btn btn-primary" style="font-size: 2rem;" v-b-tooltip.hover title="detail"
+                                @click="gotoDetails(item._id)">detail</button>
                         </div>
                     </div>
                 </div>
@@ -78,7 +79,6 @@
             return {
                 slide: 0,
                 sliding: null,
-
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
                 products: {}
             };
@@ -91,6 +91,7 @@
                 this.sliding = false
             },
             gotoDetails(productId) {
+                // console.log(productId)
                 this.$router.push('/detail/' + productId)
             }
         },
