@@ -23,6 +23,7 @@
                                     ราคา : 
                                     {{product.price}} bath
                                 </b-card-text>
+                                 <b-alert show variant="danger" v-if="product.quantity<=0">Out of stock</b-alert>
                             </b-card-body>
                         </b-col>
                     </b-row>
@@ -37,7 +38,8 @@
                     style="font-size:20px;margin-left:50px">
                 </b-form-spinbutton>
                 <b-button size="lg" variant="outline-primary" style="font-size:20px;margin-left:50px" 
-                    title="Buy">Buy</b-button>
+                    title="Buy"  v-if="product.quantity>0":disabled=false >Buy</b-button>
+                    
             </div>
         </b-container>
     </div>

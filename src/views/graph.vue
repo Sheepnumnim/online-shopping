@@ -1,83 +1,70 @@
 <template>
-    <div>
-        <apexchart width="600" type="bar" :options="chartOptions" :series="series"></apexchart>
+  <div>
+      <h2>Warehouse</h2>
+    <b-table-simple hover small caption-top responsive>
         
-        <b-button @click="calculate">calculate</b-button>
-        <b-button @click="mosttop3">most top 3</b-button>
-        <b-button @click="leasttop3">least top 3</b-button>
-        <router-link to="/owner">
-            <b-button variant="outline-success" style="font-size:15px" v-b-tooltip.hover title="add goods">back</b-button>
-        </router-link>
+                <b-thead head-variant="dark" style="font-size:15px;">
+                    <b-tr>
+                        
+                        <b-th>Name</b-th>
+                   
+                        <b-th>Price</b-th>
+                        <b-th>Description</b-th>
+                        <b-th>Quantity</b-th>
+                       
+                    </b-tr>
+                </b-thead>
+                <b-tbody>
+                    <b-tr v-for="item in products" v-bind:key="item" style="font-size:15px;">
+                        <b-td>{{item.name}}</b-td>
+                        
+                        <b-td>{{item.price}}</b-td>
+                        <b-td>{{item.description}}</b-td>
+                        <b-td>{{item.quantity}}</b-td>
+                        
+                    </b-tr>
+                </b-tbody>
+                <b-tfoot>
+                    <b-tr>
+                        <b-td colspan="7" variant="secondary" class="text-right">
+                            Total Rows: <b>{{products.length}}</b>
+                        </b-td>
+                    </b-tr>
+                </b-tfoot>
+            </b-table-simple>
+    <div v-for="item in products" v-bind:key="item">
+        <b-alert variant="danger" v-if="item.quantity <= 3" show dismissible style="font-size:15px;">
+    Little left : {{item.name}} 
+    have:{{item.quantity}} in stock 
+  </b-alert>
 
-
+        
     </div>
+  </div>
 </template>
 
 <script>
-    import axios from 'axios'
-    export default {
-        name: 'graph',
-        data() {
-            return {
-                x:0,
-                chartOptions: {
-                    chart: {
-                        id: 'vuechart-example'
-                    },
-                    xaxis: {
-                        categories: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
-                    }
-                },
-                series: [{name: 'Sales',data: [50, 80, 15, 50, 0, 30, 100, 1,5,10,15,20]}],
-                products: {},
-            }
-        },
-        methods: {
-            calculate() {
-                console.log(this.products)              
-                // let x = this.chartOptions.xaxis.categories
-                // let points = this.series[0].data
-                // points.sort(function(a, b){return a - b});
-                let date = new Date();
-                let month = date.getMonth();
-                console.log(this.series[0].data[month]);
-                for(let i=0; i<this.products.length ; i++)
-                {
-                    this.series[0].data[month] += this.products[i].quantity
-                    console.log('+')
-                }
-                console.log(this.x)
-                console.log(this.series[0].data[month])
-                this.x = this.series[0].data[month]
-                console.log(this.x)
-            },top3(){
-
-
-
-            },leasttop3(){
-
-
-
-
-            }
-
-        },
-        created() {
+  import axios from 'axios'
+  export default {
+    data() {
+      return {
+        products: {}
+      }
+    },
+    created() {
             var url = 'https://flowing-vision-262803.el.r.appspot.com/products/getMany'
             axios.get(url)
                 .then((response) => {
                     this.products = response.data
+                    this.products.forEach(function(v){ 
+                        delete v.image
+                        // delete v.history
+                     });
+                    console.log(this.products)
                 })
                 .catch((error) => {
                     console.log(error.message)
                 })
-        },
-        mounted() {
-        },
-    }
+    },
+  }
 </script>
-
-<style scoped>
-
-
-</style>
