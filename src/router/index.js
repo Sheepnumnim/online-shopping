@@ -54,6 +54,10 @@ let router = new VueRouter({
             path: '/add',
             name: add,
             component: add
+        },{
+            path: '/graph',
+            name: graph,
+            component: graph
         },
         {
             path: '/graph',

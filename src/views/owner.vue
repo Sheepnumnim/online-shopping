@@ -35,7 +35,7 @@
         <br>
         <div>
             <b-table-simple hover small caption-top responsive>
-                <b-thead head-variant="dark">
+                <b-thead head-variant="dark" style="font-size:15px;">
                     <b-tr>
                         <b-th>Name</b-th>
                         <b-th>Image</b-th>
@@ -47,7 +47,7 @@
                     </b-tr>
                 </b-thead>
                 <b-tbody>
-                    <b-tr v-for="item in products" v-bind:key="item">
+                    <b-tr v-for="item in products" v-bind:key="item" style="font-size:15px;">
                         <b-td>{{item.name}}</b-td>
                         <b-td>{{item.image}}</b-td>
                         <b-td>{{item.price}}</b-td>
