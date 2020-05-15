@@ -18,14 +18,18 @@
             <b-row>
                 <b-col>
                     <div>
-                        <label for="sb-step" style="font-size:20px">Min :price bath</label>
-                        <b-form-spinbutton id="sb-step" v-model="value" min="0" max="1000000" step="100"
-                            style="font-size:15px">
-                        </b-form-spinbutton>
+              <label for="sb-step">Spin button with step of 0.25</label>
+    <b-form-spinbutton
+      id="sb-step"
+      v-model="value"
+      min="0"
+      max="5000"
+      step="100"
+    ></b-form-spinbutton>{{value}}
                         <br>
                         <label for="sb-step" style="font-size:20px">Max :price bath</label>
-                        <b-form-spinbutton id="sb-step" v-model="value" min="0" max="1000000" step="100"
-                            style="font-size:15px">
+                        <b-form-spinbutton id="sb-step" v-model="valuemax" min="0" max="1000000" step="100"
+                            style="font-size:15px">{{valuemax}}
                         </b-form-spinbutton>
                     </div>
                 </b-col>
@@ -36,11 +40,11 @@
                         <b-input-group-prepend is-text>
                             <b-icon icon="search"></b-icon>
                         </b-input-group-prepend>
-                        <b-form-input type="search" placeholder="Search" style="font-size:15px"></b-form-input>
+                        <b-form-input type="search" v-model="search" placeholder="Search" style="font-size:15px"></b-form-input>
                     </b-input-group>
                     <br>
                     <br>
-                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover title="search">Search
+                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover title="search" @click="search">Search
                     </b-button>
                 </b-col>
             </b-row>
@@ -80,7 +84,10 @@
                 slide: 0,
                 sliding: null,
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
-                products: {}
+                products: {},
+                value: 0,
+                valuemax: 0,
+                search:''
             };
         },
         methods: {
@@ -93,6 +100,12 @@
             gotoDetails(productId) {
                 // console.log(productId)
                 this.$router.push('/detail/' + productId)
+            },search(){
+                console.log(this.value)
+               
+                console.log(this.search)
+
+
             }
         },
         created() {

@@ -5,7 +5,7 @@
                 <b-card no-body class="overflow-hidden" style="max-width: 1000px;">
                     <b-row no-gutters>
                         <b-col md="6">
-                            <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0">
+                            <b-card-img :src="product.image" alt="Image" class="rounded-0">
                             </b-card-img>
                         </b-col>
                         <b-col md="6">
@@ -14,13 +14,20 @@
                                 <b-row class="my-1">
                                     <br><br>
                                     <div class="center">
-                                        <input type="text" class="form-control" placeholder="name" v-model="product.name">
+                                        <input type="text" class="form-control" placeholder="name"
+                                            v-model="product.name">
                                         <br>
-                                        <input type="text" class="form-control" placeholder="price" v-model="product.price">
+                                        <input type="text" class="form-control" placeholder="price"
+                                            v-model="product.price">
                                         <br>
-                                        <input type="text" class="form-control" placeholder="image url" v-model="product.image">
+                                        <input type="text" class="form-control" placeholder="quantity"
+                                            v-model="product.quantity">
                                         <br>
-                                        <textarea class="areatext" rows="10" placeholder="Detail" v-model="product.description"></textarea>
+                                        <input type="text" class="form-control" placeholder="image url"
+                                            v-model="product.image">
+                                        <br>
+                                        <textarea class="areatext" rows="10" placeholder="Detail"
+                                            v-model="product.description"></textarea>
                                     </div>
                                 </b-row>
                             </b-card-body>
@@ -38,10 +45,10 @@
             <button class="btn btn-danger btn-block full-width" v-b-tooltip.hover title="cancle"
                 @click="cancle">Cancle</button>
             <br><br>
-            <b-alert :show="dismissCountDown" dismissible variant="success" @dismissed="dismissCountDown=0"
+            <b-alert :show="dismissCountDown" dismissible variant="danger" @dismissed="dismissCountDown=0"
                 @dismiss-count-down="countDownChanged">
-                <p style="font-size:20px">Edit goods success {{ dismissCountDown }} seconds...</p>
-                <b-progress variant="success" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
+                <p style="font-size:20px">Have Null fields {{ dismissCountDown }} seconds...</p>
+                <b-progress variant="danger" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
             </b-alert>
         </div>
     </div>
@@ -67,17 +74,27 @@
                     name: this.product.name,
                     price: this.product.price,
                     image: this.product.image,
+                    quantity: this.product.quantity,
                     description: this.product.description
                 }
-                axios.put(url, newProduct)
-                    .then((response) => {
-                        window.location.reload()
-                        console.log('edit success')
-                    })
-                    .catch((error) => {
-                        console.log(error.message)
-                    })
-                this.dismissCountDown = this.dismissSecs
+                if (newProduct.name.length == 0 || newProduct.price.length == 0 || newProduct.image.length == 0 ||
+                    newProduct.quantity.length == 0 || newProduct.description.length == 0) {
+                    this.dismissCountDown = this.dismissSecs
+                } else {
+                    axios.put(url, newProduct)
+                        .then((response) => {
+                            window.location.reload()
+                            console.log('edit success')
+                            this.$router.go(-1)
+                        })
+                        .catch((error) => {
+                            console.log(error.message)
+                        })
+                }
+
+
+
+
             },
             cancle() {
                 console.log('cancle')

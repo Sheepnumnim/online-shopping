@@ -8,6 +8,9 @@
             <br>
             <input type="text" class="form-control" placeholder="price" v-model="item.price">
             <br>
+            <input type="text" class="form-control" placeholder="quantity" v-model="item.quantity">
+            <br>
+            <br>
             <input type="text" class="form-control" placeholder="image url" v-model="item.imageURL">
             <br>
             <span class="input-group-addon">Description</span>
@@ -19,10 +22,10 @@
             <button class="btn btn-danger btn-block full-width" v-b-tooltip.hover title="cancle"
                 @click="cancle()">Cancle</button>
             <br><br>
-            <b-alert :show="dismissCountDown" dismissible variant="success" @dismissed="dismissCountDown=0"
+            <b-alert :show="dismissCountDown" dismissible variant="danger" @dismissed="dismissCountDown=0"
                 @dismiss-count-down="countDownChanged">
-                <p style="font-size:20px">Add goods success {{ dismissCountDown }} seconds...</p>
-                <b-progress variant="success" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
+                <p style="font-size:20px">Have Null fields {{ dismissCountDown }} seconds...</p>
+                <b-progress variant="danger" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
             </b-alert>
 
         </div>
@@ -42,7 +45,8 @@
                     name: '',
                     price: '',
                     imageURL: '',
-                    detail: ''
+                    detail: '',
+                    quantity: ''
                 },
                 dismissSecs: 5,
                 dismissCountDown: 0,
@@ -50,6 +54,11 @@
         },
         methods: {
             cancle() {
+                 this.item.name='',
+                    this.item.price='',
+                    this.item.imageURL='',
+                     this.item.detail='',
+                    this.item.quantity=''
                 this.$router.go(-1)
             },
             countDownChanged(dismissCountDown) {
@@ -61,16 +70,30 @@
                     name: this.item.name,
                     price: this.item.price,
                     image: this.item.imageURL,
-                    description: this.item.detail
+                    description: this.item.detail,
+                    quantity: this.item.quantity
                 }
-                axios.post(url, newProduct)
+            
+                if(this.item.name.length==0 || this.item.name.price.length==0 || this.item.name.imageURL.length==0 || this.item.name.description.length==0 || this.item.name.quantity.length==0){
+                     this.dismissCountDown = this.dismissSecs
+
+                }else{axios.post(url, newProduct)
                     .then((response) => {
                         console.log('added success')
+                        this.$router.go(-1)
+
                     })
                     .catch((error) => {
                         console.log(error.message)
-                    })
-                this.dismissCountDown = this.dismissSecs
+                    }) }
+                
+                    
+
+               
+                   
+
+                
+                
             }
         }
     }
