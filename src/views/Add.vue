@@ -73,8 +73,14 @@
                     description: this.item.detail,
                     quantity: this.item.quantity
                 }
+                let n = newProduct.name.length
+                let p = newProduct.price.length
+                let im = newProduct.image.length
+                let des = newProduct.description.length
+                let q = newProduct.quantity.length
+                
             
-                if(this.item.name.length==0 || this.item.name.price.length==0 || this.item.name.imageURL.length==0 || this.item.name.description.length==0 || this.item.name.quantity.length==0){
+                if(n==0 || p==0 || im==0 || des==0 || q==0){
                      this.dismissCountDown = this.dismissSecs
 
                 }else{axios.post(url, newProduct)
