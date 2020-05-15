@@ -1,34 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!-- <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand >Online shopping</b-navbar-brand>
-    <router-link to="/main">
-    <b-button size="sm" class="mb-2" variant="outline-info">
-    <b-iconstack font-scale="5" rotate="90" animation="cylon-vertical" >
-      <b-icon stacked icon="credit-card" shift-h="-4" variant="danger"></b-icon>
-      <b-icon stacked icon="credit-card" shift-h="0" variant="success"></b-icon>
+  <b-navbar toggleable="sm" type="dark" variant="dark">
+     <router-link to="/main">
+    <b-button size="sm" variant="outline-noOutline">
+    <b-iconstack font-scale="5" rotate="0" animation="cylon-vertical" >
+      <b-icon stacked icon="house-door-fill" shift-h="3" shift-v="0" variant="success"></b-icon>
+      <b-icon stacked icon="house-door" shift-h="0" variant="success"></b-icon>
     </b-iconstack>
     </b-button>
     </router-link>
-
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-    <b-collapse id="nav-collapse" is-nav> 
-
-      <b-navbar-nav class="ml-auto" right >
-      <router-link to="/signin">
-      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Sign in">
-      <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon> Sign in</b-button></router-link>
-      <router-link to="/signup">
-      <b-button variant="outline-info" class="mb-2" v-b-tooltip.hover title="Sign up">
-      <b-icon icon="person-plus" aria-hidden="true"></b-icon> Sign up</b-button></router-link>
-
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>   -->
-  <b-navbar toggleable="sm" type="dark" variant="dark">
-    <b-navbar-brand href="/#/main">Online Shopping</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

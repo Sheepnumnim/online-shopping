@@ -3,18 +3,25 @@
         <b-container class="bv-example-row">
             <div>
                 <b-card no-body class="overflow-hidden" style="max-width: 1000px;">
-                    <b-row no-gutters>
+                    <b-row no-gutters >
                         <b-col md="6">
                             <b-card-img :src="product.image" alt="Image" class="rounded-0">
                             </b-card-img>
                         </b-col>
                         <b-col md="6">
-                            <b-card-body :title="product.name" style="font-size:20px">
+                            
+                            <b-card-body  style="font-size:25px">
                                 <b-card-text>
+                                    ชื่อสินค้า : 
+                                    {{product.name}}
+                                </b-card-text>
+                                <b-card-text>
+                                    ข้อมูลเพิ่มเติม : 
                                     {{product.description}}
                                 </b-card-text>
                                 <b-card-text>
-                                    {{product.price}}
+                                    ราคา : 
+                                    {{product.price}} bath
                                 </b-card-text>
                             </b-card-body>
                         </b-col>
