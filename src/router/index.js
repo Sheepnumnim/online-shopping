@@ -7,6 +7,7 @@ import detail from '../views/detail.vue'
 import owner from '../views/owner.vue'
 import edit from '../views/edit.vue'
 import add from '../views/Add'
+import graph from '../views/graph'
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,7 @@ let router = new VueRouter({
             path: '/signup',
             name: SignUp,
             component: SignUp
-        }, 
+        },
         {
             path: '/main',
             name: main,
@@ -38,30 +39,27 @@ let router = new VueRouter({
             path: '/detail/:productId',
             name: detail,
             component: detail
-        }, 
+        },
         {
             path: '/owner',
             name: owner,
             component: owner
-        }, 
+        },
         {
             path: '/edit/:productId',
             name: edit,
             component: edit
-        }, 
+        },
         {
             path: '/add',
             name: add,
             component: add
         },
-        // },
-        // {
-        //   path: '/movie',
-        //   name: MovieList,
-        //   component: MovieList,
-        //   meta: {
-        //     requireAuth: true
-        //   }
+        {
+            path: '/graph',
+            name: graph,
+            component: graph
+        }
     ]
 })
 
@@ -70,9 +68,11 @@ router.beforeEach((to, from, next) => {
     let requireAuth = to.matched.some(record => record.meta.requireAuth)
     if (requireAuth && !currentUser) {
         next('signin')
-        // } else if (!requireAuth && currentUser) {
-        //   next('movie')
-    } else {
+    } 
+    // else if (!requireAuth && currentUser) {
+    //     next('main')
+    // } 
+    else {
         next()
     }
 })

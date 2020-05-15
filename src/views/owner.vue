@@ -60,7 +60,7 @@
                 <b-tfoot>
                     <b-tr>
                         <b-td colspan="7" variant="secondary" class="text-right">
-                            Total Rows: <b>5</b>
+                            Total Rows: <b>{{products.length}}</b>
                         </b-td>
                     </b-tr>
                 </b-tfoot>
