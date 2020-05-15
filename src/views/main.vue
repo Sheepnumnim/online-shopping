@@ -17,23 +17,6 @@
         <b-container class="bv-example-row">
             <b-row>
                 <b-col>
-                    <div>
-              <label for="sb-step">Spin button with step of 0.25</label>
-    <b-form-spinbutton
-      id="sb-step"
-      v-model="value"
-      min="0"
-      max="5000"
-      step="100"
-    ></b-form-spinbutton>{{value}}
-                        <br>
-                        <label for="sb-step" style="font-size:20px">Max :price bath</label>
-                        <b-form-spinbutton id="sb-step" v-model="valuemax" min="0" max="1000000" step="100"
-                            style="font-size:15px">{{valuemax}}
-                        </b-form-spinbutton>
-                    </div>
-                </b-col>
-                <b-col>
                     <br>
                     <br>
                     <b-input-group size="lg" class="mb-2">

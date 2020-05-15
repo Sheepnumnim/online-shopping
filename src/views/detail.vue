@@ -37,7 +37,7 @@
                 <b-form-spinbutton id="sb-large" v-else value="0" inline min="0" max="0"
                     style="font-size:20px;margin-left:50px">
                 </b-form-spinbutton>
-                <b-button size="lg" variant="outline-primary" v-if="product.quantity >0 ":disabled=false style="font-size:20px;margin-left:50px" title="Buy" @click="updateHistory">Buy
+                <b-button size="lg" variant="outline-primary" v-if="product.quantity >0 " :disabled=false style="font-size:20px;margin-left:50px" title="Buy" @click="updateHistory">Buy
                 </b-button>
             </div>
             <p></p>
