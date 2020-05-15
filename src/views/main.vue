@@ -36,18 +36,16 @@
                         <b-input-group-prepend is-text>
                             <b-icon icon="search"></b-icon>
                         </b-input-group-prepend>
-                        <b-form-input type="search" placeholder="Search" style="font-size:15px"></b-form-input>
+                        <b-form-input type="search" v-model="search" placeholder="Search" style="font-size:15px"></b-form-input>
                     </b-input-group>
                     <br>
                     <br>
-                    <b-button variant="outline-primary" style="font-size:15px" v-b-tooltip.hover title="search">Search
-                    </b-button>
                 </b-col>
             </b-row>
         </b-container>
         <!-- อันนี้คือแสดงข้อมูล -->
         <b-container class="bv-example-row">
-            <div class="col-md-3" v-for="item in products" v-bind:key="item">
+            <div class="col-md-3" v-for="item in filteredSearch" v-bind:key="item">
                 <div class="card">
                     <img :src="item.image" :alt="item.name" class="card-img-top" height="210rem">
                     <div class="card-body" style="font-size: 2rem;">
@@ -80,7 +78,8 @@
                 slide: 0,
                 sliding: null,
                 images: ['./img/starwar.jpg', './img/asdw.jpg', './img/img.jpg', './img/iokj.jpg', './img/summer.jpg'],
-                products: {}
+                products: [],
+                search: ''
             };
         },
         methods: {
@@ -104,6 +103,13 @@
                 .catch((error) => {
                     console.log(error.message)
                 })
+        },
+        computed: {
+            filteredSearch: function() {
+                return this.products.filter((product) => {
+                    return product.name.match(this.search)
+                })
+            }
         },
         components: {
             Hooper,
